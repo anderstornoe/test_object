@@ -13,8 +13,8 @@ function swallowError(error) {
 //  
 
 var gulp = require('gulp'),
-    gutil = require('gulp-util')
-gulpif = require('gulp-if'),
+    gutil = require('gulp-util'),
+    gulpif = require('gulp-if'),
     uglify = require('gulp-uglify'),
     connect = require('gulp-connect'),
     minifyCSS = require('gulp-minify-css'),
@@ -39,7 +39,9 @@ if (env === 'development') {
 jsSources = [
     '../../bower_components/jquery/dist/jquery.js',
     '../../bower_components/jquery-ui/jquery-ui.js',
-    '../../bower_components/bootstrap/dist/js/bootstrap.js'
+    '../../bower_components/bootstrap/dist/js/bootstrap.js',
+    '../../bower_components/jquery-ui-touch-punch/jquery.ui.touch-punch.js'
+
 
 ];
 
@@ -48,7 +50,7 @@ htmlSources = [
 ];
 
 cssSources = [
-    'components/css/*.css'
+    '../../library/*.css'
 ];
 
 
@@ -81,7 +83,7 @@ gulp.task('css', function() {
         .pipe(gulpif(env === 'production', minifyCSS({
             keepBreaks: false
         })))
-        .pipe(gulp.dest(outputDir + 'css'))
+        .pipe(gulp.dest(outputDir))
         .pipe(connect.reload())
 });
 
@@ -98,13 +100,13 @@ gulp.task('watch', function() {
 
 
 });
-
+/*
 gulp.task('connect', function() {
     connect.server({
         root: outputDir,
         livereload: true
     });
     gutil.log("Hej fra connect");
-});
+});*/
 
-gulp.task('default', ['js', 'connect', 'html', 'css', 'lint', 'log', 'watch']);
+gulp.task('default', ['js', 'html', 'css', 'lint', 'log', 'watch']);

@@ -6,42 +6,48 @@
     <title>Interaktiv video</title>
     <meta name="author" content="ato" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="../../../library/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="kemi_drag.css" type="text/css" />
+    <link rel="stylesheet" href="../../../library/styles.css" type="text/css" />
+     <script src="../../../library/vendor_scripts.js"></script>
     <!-- Date: 2012-08-07 -->
+    <style>
+    #draggable {
+        width: 150px;
+        height: 150px;
+        padding: 0.5em;
+    }
+    </style>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="col-xs-12">
             <div class="h1">Drag and drop</div>
-            <div class="embed-responsive embed-responsive-16by9 col-xs-12 col-md-12">
-                <div id="player" class="embed-responsive-item"> </div>
-                <div id="time">
+            <script>
+            $(function() {
+                $("#draggable").draggable();
+            });
+            </script>
+            </head>
+
+            <body>
+                <div id="draggable" class="ui-widget-content">
+                    <p>Drag me around</p>
                 </div>
-                <div id="time_bar"></div>
-            </div>
-            <div id="overlay">
-                <div class="popud">
-                </div>
-            </div>
+            </body>
         </div>
     </div>
-    <script src="script.js"></script>
+   c
     <script>
-    alert ($.fn.jquery);
-        //loadData("kemi_drag.json");
+    alert($.fn.jquery);
+    //loadData("kemi_drag.json");
     </script>
-    <script src="../../shared components/shared_functions.js"></script>
     <script type="text/javascript">
-       /* $(document).ready(function() {
-            GeneralOverlayObj.ApplyOverlay_why(".embed-responsive", "vid_an");
-            GeneralOverlayObj.ApplyOverlay_how(".embed-responsive", "vid_an");
-            footer();
-        });*/
+    /* $(document).ready(function() {
+                        GeneralOverlayObj.ApplyOverlay_why(".embed-responsive", "vid_an");
+                        GeneralOverlayObj.ApplyOverlay_how(".embed-responsive", "vid_an");
+                        footer();
+                    });*/
     </script>
 </body>
 
 </html>
-
-
